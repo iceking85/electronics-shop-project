@@ -11,3 +11,13 @@ def test_apply_discount():
     Item.pay_rate = 0.7
     item.apply_discount()
     assert item.price == 70
+
+def test_calculate_total_price():
+    item = Item('Test_name',price=100, quantity=5)
+    item.calculate_total_price()
+    assert item.price * item.quantity == 500
+
+def test_string_to_number():
+    assert Item.string_to_number('5') == 5
+    assert Item.string_to_number('5.0') == 5
+    assert Item.string_to_number('5.5') == 5
